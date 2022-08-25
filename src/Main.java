@@ -3,26 +3,24 @@ import java.time.LocalDate;
 public class Main {
     public static void main(String[] args) {
 
-        leapYear();
-        String osName = "iOS";
-        getClientOS(osName);
-        delDis(95);
+        getLeapYear(2021);
+        getClientOS(1);
+        getDelDis(95);
     }
     // Задание 1
-    public static void leapYear(){
-        int year = 2009;
+    private static int getLeapYear(int year){
         if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
             System.out.println(year + " год является високосным");
         } else {
             System.out.println(year + " год не является високосным");
         }
+        return year;
     }
 
     // Задание 2
-    public static int getClientOS(String name) {
+    private static int getClientOS(int clientOs) {
 
             int currentYear = LocalDate.now().getYear();
-            int clientOs = 1;
         if (clientOs == 1 && currentYear > 2015) {
                 System.out.println("«Установите облегченную версию приложения для Android по ссылке».");
             } else {
@@ -34,26 +32,20 @@ public class Main {
                 } else {
                     System.out.println("«Установите версию приложения для iOS по ссылке».");
                 }
-
-            if (name.equals("iOS")) {
-                return 0;
-            } else {
-                return 1;
-            }
-
+            return clientOs;
         }
          // Задание 3
-      public static int delDis(int x){
+     private static int getDelDis(int dayDel){
           int deliveryDays = 1;
 
-          if (x > 20){
+          if (dayDel > 20){
               deliveryDays++;
           }
-          if (x > 60){
+          if (dayDel > 60){
               deliveryDays++;
           }
           System.out.println("потребуется дней  " + deliveryDays);
-          return 1;
+          return dayDel;
       }
 
     }
